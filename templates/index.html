@@ -1,0 +1,47 @@
+<!-- unable to link static stylesheet - server won't run with it linked; Bootstrap link work seems to work fine, but for now any additional styling has to be inline until I/someone can figure out what the issue is with static - that's why there isn't any static CSS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<style>
+    .table{
+        width: 80%;
+        margin-left: 10%;
+        text-align: center;
+    }
+
+    #head {
+        color: orange;
+    }
+
+</style>
+
+</head>
+<body>
+    <table class="table table-dark table-striped table-hover table-bordered border-dark">
+        <thead class="table-dark" id="head">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Full Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for user in users%}
+            <tr>
+                <td>{{user['first_name']}}</td>
+                <td>{{user['last_name']}}</td>
+                <!-- figure out how to insert space -->
+                <td>{{user['first_name'] + user['last_name']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
